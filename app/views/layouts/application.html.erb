@@ -43,6 +43,15 @@
     <div class="container">
       <div class="content">
         <div class="row">
+          <% if notice %>
+              <div class="span9">
+                  <div class="alert alert-success fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <%= notice %>
+                  </div>
+              </div>
+          <% end %>
+
            <div class="span9">
               <%= yield %>
             </div>

@@ -12,6 +12,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 gem 'twitter-bootstrap-rails'

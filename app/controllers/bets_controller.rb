@@ -37,8 +37,6 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
   end
 
-  # POST /bets
-  # POST /bets.json
   def create
     @bet = Bet.new(params[:bet])
 
