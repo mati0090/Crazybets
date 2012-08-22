@@ -31,3 +31,16 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+def login(user)
+  visit new_login_path
+  fill_in 'Login', :with => user.login
+  fill_in 'Password', :with => user.password
+  click_button("Login")
+end
+
+class RSpec::Core::ExampleGroup
+  def create_users *users
+    @remi = FactoryGirl.create(:remi) if users.include?(:remi)
+  end
+end

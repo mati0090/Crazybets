@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'authlogic'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -14,6 +15,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 gem 'twitter-bootstrap-rails'
