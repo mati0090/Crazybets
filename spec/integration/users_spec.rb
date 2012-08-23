@@ -13,7 +13,7 @@ describe UsersController do
     page.should have_content("Account registered!")
   end
 
-  it "should be able to login" do
+  it "should be able to login and logout" do
     User.create!(:login => 'Bury',
                 :password => 'pass123',
                 :password_confirmation => 'pass123',
@@ -25,5 +25,8 @@ describe UsersController do
     click_button("Login")
 
     page.should have_content("Login successful!")
+
+    click_link("Logout")
+    page.should have_content("Logout successful!")
   end
 end
