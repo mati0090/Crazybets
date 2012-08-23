@@ -4,7 +4,11 @@ class BetsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @bets = Bet.all
+    if params[:profile_id].present?
+      @bets = User.find(params[:profile_id]).bets
+    else
+      @bets = Bet.all
+    end
   end
 
   def show

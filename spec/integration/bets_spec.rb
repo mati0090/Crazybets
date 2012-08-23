@@ -28,10 +28,20 @@ describe BetsController do
       page.should have_content("I'll do crazy thing")
     end
 
-    it "should list bets belongs to users" do
+    it "should list only bets belongs to users" do
+      FactoryGirl.create(:bet, :title => "Jump form 100m bridge")
       visit profile_bets_path(@remi)
 
+      page.should     have_content("Crazy thing")
+      page.should_not have_content("Jump form 100m bridge")
+    end
+
+    it "should list all bets on home page" do
+      FactoryGirl.create(:bet, :title => "Jump form 100m bridge")
+      visit root_path
+
       page.should have_content("Crazy thing")
+      page.should have_content("Jump form 100m bridge")
     end
   end
 end

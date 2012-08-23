@@ -31,9 +31,11 @@
           <a class="brand" href="#">Crazybets</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <% if current_user %>
+                <li><%= link_to "My Bets", profile_bets_path(current_user)  %></li>
+              <% else %>
+
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
