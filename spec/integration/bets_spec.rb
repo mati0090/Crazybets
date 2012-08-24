@@ -44,4 +44,33 @@ describe BetsController do
       page.should have_content("Jump form 100m bridge")
     end
   end
+
+  it "should be editable only for bet creator" do
+    create_users :remi
+    bet = FactoryGirl.create(:bet, :author => @remi)
+
+    login @remi
+    visit bet_path(bet)
+    click_on("Edit")
+    fill_in "Title", :with => "Changed Bet"
+    fill_in "Description", :with => "Changed descrption"
+    fill_in "Amount", :with => "100"
+    click_on("Update Bet")
+
+    page.should have_content("Bet was successfully updated.")
+    page.should have_content("Changed Bet")
+    page.should have_content("Changed descrption")
+    page.should have_content("Amount: 100")
+  end
+
+  it "should be unable to edit for non-author user" do
+    create_users :remi
+    bet = FactoryGirl.create(:bet)
+
+    login @remi
+    visit bet_path(bet)
+    click_on("Edit")
+
+    page.should have_content("You are not authorized to access this page.")
+  end
 end

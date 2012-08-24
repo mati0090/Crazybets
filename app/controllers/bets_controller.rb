@@ -25,7 +25,7 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.new(params[:bet])
-    @bet.user = current_user
+    @bet.author = current_user
     if @bet.save
       redirect_to @bet, notice: 'Bet was successfully created.'
     else

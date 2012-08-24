@@ -9,7 +9,7 @@ describe Bet do
     bet.title = "Something crazy"
     bet.description ="I'll do something crazy"
     bet.amount = 500
-    bet.user = user
+    bet.author = user
 
     bet.save.should be_true
   end

@@ -14,5 +14,9 @@ class Ability
     can :create, Bet do
       !user.anonymous?
     end
+
+    can :update, Bet do |bet|
+      !user.anonymous? && bet.author == user
+    end
   end
 end

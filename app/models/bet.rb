@@ -1,5 +1,5 @@
 class Bet < ActiveRecord::Base
-  attr_accessible :amount, :description, :title, :user_id, :user
+  attr_accessible :amount, :description, :title, :author
 
-  belongs_to :user
+  belongs_to :author, :class_name => "User"
 end
