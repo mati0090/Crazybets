@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824144214) do
+ActiveRecord::Schema.define(:version => 20120824152256) do
 
   create_table "bets", :force => true do |t|
     t.string   "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120824144214) do
     t.datetime "last_login_at"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "balance",           :default => 0
   end
 
 end

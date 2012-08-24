@@ -13,4 +13,10 @@ describe User do
 
     user.anonymous?.should be_false
   end
+
+  it "should create user with empty balance" do
+    user = FactoryGirl.create(:remi)
+
+    user.balance.should == 0
+  end
 end

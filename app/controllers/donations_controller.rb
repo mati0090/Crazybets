@@ -10,7 +10,7 @@ class DonationsController < ApplicationController
   def create
     bet = Bet.find(params[:bet_id])
 
-    @donation       = Donation.new(params[:bet])
+    @donation       = Donation.new(params[:donation])
     @donation.bet   = bet
     @donation.user  = current_user
 

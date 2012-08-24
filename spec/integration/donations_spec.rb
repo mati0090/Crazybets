@@ -14,6 +14,7 @@ describe DonationsController do
     bet = FactoryGirl.create(:bet)
     create_users :remi
     login(@remi)
+    @remi.update_attribute(:balance, 50)
 
     visit bet_path(bet)
     click_link("Donate")
