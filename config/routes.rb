@@ -1,5 +1,7 @@
 Crazybets::Application.routes.draw do
-  resources :bets
+  resources :bets do
+    resources :donations, :only => [:index, :new, :create]
+  end
   resource :account, :controller => :users
 
   resource :login, :controller => :user_sessions, :only => [:new, :create, :destroy]
